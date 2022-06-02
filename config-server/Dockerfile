@@ -1,0 +1,19 @@
+FROM openjdk:17-jdk-alpine3.14
+
+RUN apk update && apk upgrade && \
+    apk add --no-cache git openssh
+
+RUN mkdir /app
+WORKDIR /app
+
+COPY ./app /app/
+RUN chmod +x /app/entrypoint.sh
+
+RUN adduser -D whale --uid 1000
+RUN chown -R whale /app
+
+USER 1000
+
+EXPOSE 8888
+ENV JAVA_TOOL_OPTIONS -Dfile.encoding=UTF8 -Duser.country=CA -Duser.language=en -Duser.timezone=UTC -Djava.net.preferIPv4Stack=true
+ENTRYPOINT /app/entrypoint.sh

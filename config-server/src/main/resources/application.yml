@@ -1,0 +1,36 @@
+server:
+  port: 8888
+
+management:
+  health:
+    vault:
+      enabled: true
+
+logging:
+  level:
+    org.springframework.cloud: "FATAL"
+    com.netflix.discovery.shared: "FATAL"
+
+spring:
+  profiles:
+    active: git, vault
+  cloud:
+    config:
+      server:
+        git:
+          order: 1
+          uri: ${GIT_REPOSITORY_URI}
+          default-label: ${GIT_DEFAULT_BRANCH}
+        vault:
+          order: 2
+          port: ${VAULT_PORT}
+          host: ${VAULT_HOST}
+          scheme: ${VAULT_SCHEME}
+          uri: ${VAULT_URI}
+          authentication: TOKEN
+          token: ${VAULT_TOKEN}
+          backend: secret
+          profile-separator: "-"
+          default-context: application
+          kv-version: 2
+          skipSslValidation: true

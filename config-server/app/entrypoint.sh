@@ -1,0 +1,1 @@
+java -jar configserver-1.0.0.jar

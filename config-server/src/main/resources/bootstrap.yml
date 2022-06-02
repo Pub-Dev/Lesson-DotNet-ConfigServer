@@ -1,0 +1,4 @@
+spring:
+  label: main
+  application:
+    name: config-server
