@@ -8,8 +8,6 @@
 
 ## Lesson-DotNet-ConfigServer
 
-[![CI](https://github.com/Pub-Dev/Lesson-DotNet-ConfigServer/actions/workflows/buildAndPush.yml/badge.svg?branch=main)](https://github.com/Pub-Dev/Lesson-DotNet-ConfigServer/actions/workflows/buildAndPush.yml)
-
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
